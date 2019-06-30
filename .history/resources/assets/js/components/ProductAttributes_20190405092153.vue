@@ -1,0 +1,3 @@
+<template>
+    .white-box>
+</template>

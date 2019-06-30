@@ -1,0 +1,49 @@
+.new-feature {
+    font-size: 8px;
+}
+
+.zone-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid;
+    max-height: 300px;
+    min-height: 300px;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+
+    .zone {
+        padding: 5px 0;
+
+        label {
+            cursor: pointer;
+        }
+    }
+
+    .badge {
+        font-size: 
+    }
+}
+
+.select-all {
+    float: left;
+    margin-right: 3px;
+
+}
+
+.other-buttons {
+    margin-right: 280px;
+
+    .delete-all {
+        margin-right: 5px;
+    }
+}
+
+.modal.in .modal-dialog {
+    transform: translate(0, 60px);
+}
+
+.ship-to {
+    text-align: center;
+    padding-top: 100px;
+}

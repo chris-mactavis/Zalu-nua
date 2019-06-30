@@ -1,0 +1,52 @@
+.new-feature {
+    
+}
+.zone-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid;
+    max-height: 300px;
+    min-height: 300px;
+    min-width: 150px;
+    overflow-y: scroll;
+    position: relative;
+
+    .zone {
+        padding: 5px 0;
+
+        label {
+            cursor: pointer;
+        }
+    }
+}
+
+.select-all {
+    margin-left: 10px;
+    float: left;
+
+}
+
+.delete-all {
+    float: right;
+}
+
+.sel-all {
+    float: right;
+    margin-right: 5px;
+}
+
+.add-to-zone {
+    float: right;
+}
+
+.other-buttons {
+    margin-right: 280px;
+
+    .delete-all {
+        margin-right: 5px;
+    }
+}
+
+.modal.in .modal-dialog {
+    transform: translate(0, 60px);
+}

@@ -1,0 +1,328 @@
+.note-editable ul, .content_info ul {
+    list-style-type: disc !important;
+    padding: 5px 15px;
+}
+
+.btn-wrap {
+    width: calc(100% - 800px);
+    height: 30px;
+    float: left;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.top-btn {
+    width: auto;
+    height: 30px;
+    display: inline-block;
+}
+
+.top-btn a {
+    width: auto;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+.inner_nav {
+    width: 100%;
+    min-height: 50px;
+    margin: 0 0 20px;
+    background-color: #333;
+}
+
+.inner_nav ul {
+    list-style-type: none;
+    display: block;
+}
+
+.inner_nav ul li {
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    margin: 5px;
+}
+
+.inner_nav ul li a {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #ddd;
+    padding: 0 10px;
+    font-size: 13px;
+    display: block;
+}
+
+.inner_nav ul li a:hover {
+    color: #fff;
+}
+
+.edit-btn-trigger {
+    width: 90px;
+    padding: 5px 5px;
+    height: 25px;
+    position: relative;
+    background-color: #aaa;
+    color: #000;
+    text-align: left;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.edit-btn-trigger img {
+    width: 15px;
+    float: left;
+    margin-right: 10px;
+}
+
+
+.edit-btn-cont {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+}
+
+.edit-btn-wrap {
+    height: auto;
+    width: 100%;
+    position: relative;
+    float: right;
+    text-align: right;
+    display: block;
+}
+
+
+.edit-btn {
+    display: inline-block;
+    width: auto;
+    height: 27px;
+    margin: 0 1px;
+}
+
+.edit-btn a {
+    display: inline-block;
+    width: auto;
+    height: 27px;
+    padding: 4px;
+    background-color: #ddd;
+    border: solid 1px #bbb;
+    color: #555;
+    text-align: left;
+    line-height: 15px;
+    text-decoration: none; 
+}
+
+.edit-btn a img {
+    width: 14px;
+}
+
+.edit-btn a:hover {
+    background-color: #ccc;
+}
+
+
+.delete {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #eee;
+    border: solid 1px #ddd;
+    background-image: url('../images/close.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.edit {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    background-color: #eee;
+    border: solid 1px #ddd;
+    background-image: url('../images/edit_icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.delete_btn a {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #eee;
+    border: solid 1px #ddd;
+    background-image: url('../images/close.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.profile_pix {
+    width: 120px;
+}
+
+.profile_pix img {
+    width: 100%;
+}
+
+.top_cont {
+    width: 100%;
+    min-height: 60px;
+    padding: 0px 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #ccc;
+}
+
+.link_btn a {
+    width: 120px;
+    height: 40px;
+    display: block;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+}
+
+.red {
+    color: red !important;
+}
+
+.image_wrap {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.image_wrap img {
+    width: 100%;
+}
+
+.banner_wrap {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.banner_wrap .banner {
+    width: 100%;
+    height: auto;
+    border: solid 1px #ccc;
+}
+
+.banner_wrap .cover {
+    width: 100%;
+    height: auto;
+    border: solid 1px #ccc;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.content_info {
+    width: 100%;
+    padding: 20px;
+    border: solid 1px #ddd;
+    margin: 20px 0;
+}
+
+.product_info {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.product_info p {
+    margin-bottom: 20px;
+}
+
+.prdt_decription {
+    margin: 20px 0;
+}
+
+.prdt_description label {
+    font-weight: 700;
+}
+
+.info_itm {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 20px;
+}
+
+.bottom_button_wrap {
+    width: 100%;
+    padding: 20px 0;
+    border-top: solid 1px #ddd;
+    margin-top: 20px;
+
+}
+
+.top_btns {
+    text-align: right;
+}
+
+.top_btns a {
+    margin: 0 5px;
+}
+
+
+.dept_wrap {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: solid 1px #ddd;
+}
+
+.dept_wrap h4 {
+
+}
+
+.dept_img {
+    width: 100%;
+    padding-bottom: 110%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #eee;
+}
+
+.dept_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.dept_btns {
+    width: 100%;
+    height: 40px;
+}
+
+
+.dept_btns a {
+    width: auto;
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+

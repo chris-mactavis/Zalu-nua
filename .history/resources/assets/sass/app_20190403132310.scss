@@ -1,0 +1,27 @@
+.zone-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid;
+    max-height: 300px;
+    min-height: 300px;
+    min-width: 150px;
+    overflow-y: scroll;
+
+    .zone {
+        padding: 5px 0;
+
+        label {
+            cursor: pointer;
+        }
+    }
+}
+
+.ship-to {
+    display: inline-block;
+    max-height: 300px;
+    min-height: 300px;
+    min-width: 150px;
+    .btn {
+        display: inline-block;
+    }
+}

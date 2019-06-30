@@ -1,0 +1,62 @@
+@media screen and (min-width:1400px) {
+	
+
+}
+
+
+
+@media screen and (max-width:1200px) {
+	
+	.container {
+		width: 94%;
+	}
+
+	
+
+}
+
+
+@media screen and (max-width:800px) {
+	
+	.container {
+		width: 96%;
+	}
+
+}
+
+
+@media screen and (max-width:600px) {
+
+	.container {
+		width: 98%;
+	}
+	
+	#regular_header {
+		display: none;
+	}
+
+	#mobile_header {
+		display: block;
+	}
+
+	.sort {
+		display: none;
+	}
+
+	
+	.ubislider-image-container.left {
+		width: 100%;
+	}
+
+	.ubislider.ecommerce.left {
+		height: 7pc;
+	}
+	.detail_content {
+		padding: 0;
+	}
+
+	.social {
+		text-align: left;
+	}
+
+}

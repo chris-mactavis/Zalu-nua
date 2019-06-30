@@ -1,0 +1,10 @@
+.zone-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid;
+        max-height: 300px;
+        overflow-y: scroll;
+        .zone {
+            padding: 5px 0;
+        }
+}

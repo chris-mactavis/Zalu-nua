@@ -1,0 +1,172 @@
+.new-feature {
+    font-size: 8px;
+}
+
+.zone-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #aaa;
+    max-height: 300px;
+    min-height: 300px;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 15px 20px #ccc;
+    margin-bottom: 15px;
+
+    .zone {
+        padding: 5px 0;
+
+        label {
+            cursor: pointer;
+        }
+    }
+
+    .badge {
+        font-size: 8px;
+    }
+}
+
+.select-all {
+    float: left;
+    margin-right: 3px;
+
+}
+
+.other-buttons {
+    margin-right: 280px;
+
+    .delete-all {
+        margin-right: 5px;
+    }
+}
+
+.modal.in .modal-dialog {
+    transform: translate(0, 60px);
+}
+
+.ship-to {
+    text-align: center;
+    padding-top: 100px;
+}
+
+hr {
+    margin-top: 0;
+}
+
+.add-to-cart-form {
+
+    span,
+    label {
+        font-size: 14px;
+    }
+
+    label {
+        margin: 4px;
+        transition: padding .3s;
+    }
+
+    .product-attribute-option {
+        padding: 7px 14px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+
+        font-weight: normal;
+
+        &-input {
+            display: none;
+
+            &:checked {
+                &+label {
+                    // background: #aaa;
+                    // color: white;
+                    padding-right: 40px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        background: url(/images/tick.png);
+                        top: 5px;
+                        right: 10px;
+                        width: 20px;
+                        height: 20px;
+                        z-index: 20;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.label-inline-block {
+    display: block;
+    font-weight: 700
+}
+
+.panel .order {
+    display: flex;
+    font-size: 1.6rem;
+    // min-height: 130px;
+
+    &__image {
+        flex: 0 0 20%;
+
+        img {
+            width: 70%;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        padding-bottom: 5px;
+    }
+
+    &__date {
+        margin-top: 5px;
+        flex: 1;
+    }
+
+    &__status {
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+}
+
+.cart_qty_input {
+    width: 40px;
+    height: 31px;
+    border: solid 1px #ccc;
+    padding: 5px 2px;
+    margin: 0;
+    text-align: center;
+}
+
+.footer_itm{
+    a {
+        padding-left: 0!important;
+        &.contact {color: blue;}
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .ubislider {
+        width: auto!important;
+        height: auto!important;
+        &-inner {
+            top: 0!important;
+            height: auto!important;
+        }
+    }
+}
