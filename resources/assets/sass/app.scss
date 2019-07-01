@@ -191,6 +191,9 @@ p.discount {
     cursor: pointer;
 }
 
+.mobile_nav_menu {
+    display: none;
+}
 
 @media screen and (max-width: 600px) {
     .mobile_nav_menu {
