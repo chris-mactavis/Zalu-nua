@@ -186,3 +186,78 @@ p.discount {
         text-decoration: line-through;
     }
 }
+
+.nav_trigger {
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+    .mobile_nav_menu {
+        background-color: rgb(0, 0, 0);
+        display: none;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 30px 10px;
+
+            li {
+                margin-bottom: 5px;
+                cursor: pointer;
+
+                &.active {
+                    border: 1px solid white;
+                    background-color: rgb(255, 255, 255);
+
+                    &:not(:first-child) {
+                        a {
+                            color: black !important;
+                        }
+                    }
+                }
+
+                &:hover {
+                    border: 1px solid white;
+                }
+
+                &:active {
+                    border: 1px solid white;
+                }
+
+                &:first-child {
+                    background-color: #ac0202;
+                }
+
+                a {
+                    color: white;
+                    font-size: 16px;
+                    padding: 20px 10px;
+                    display: inline-block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    header#main-header {
+        transition: all .4s;
+
+        &.nav-open {
+            height: 100vh;
+            position: fixed;
+            z-index: 100;
+
+            .mobile_nav_menu {
+                height: calc(100% - 60px);
+                display: block;
+            }
+
+            #mobile_header {
+                background: white;
+            }
+        }
+
+    }
+}

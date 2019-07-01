@@ -2,7 +2,7 @@
 
 <div id="main">
 
-<header>
+<header id="main-header">
 	
 	@include('includes.mobile_header')
 

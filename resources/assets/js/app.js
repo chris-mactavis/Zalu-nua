@@ -40,7 +40,7 @@ $(document).ready(function () {
                 $state.removeAttr('required');
                 $state.hide();
                 $('#state-container').append(`<input type="text" name="state_id_alt" class="form-control" id="reg-state-alt" placeholder="State" required>`)
-                $city.removeAttr('required');                
+                $city.removeAttr('required');
                 $city.hide();
                 $('#city-container').append(`<input type="text" name="city_alt" class="form-control" placeholder="City" id="reg-city-alt" required>`)
             }
@@ -322,6 +322,21 @@ $('#coupon').on('keyup', function () {
 
 //  Cart Quantity
 let $quantity_input = $('.cart_qty_input')
-$quantity_input.keypress(function(evt) {
+$quantity_input.keypress(function (evt) {
     evt.preventDefault();
 })
+
+//  Mobile Nav
+let $header = $('#main-header');
+let open = false;
+$('.nav_trigger').on('click', function (e) {
+    e.preventDefault();
+    let navClass = !open ? 'nav-open' : '';
+    $header.removeClass('nav-open');
+    $header.addClass(navClass);
+    open = !open;
+})
+
+
+let parent = $('a[href="' + location.pathname + '"]').parent('li');
+parent.addClass('active');
