@@ -50,12 +50,22 @@ use Illuminate\Support\Facades\URL;
 						{!! ($product->description) !!}
 					</p>
 
+					@if($product->sale == 'yes')
+
 					<p class="price discount">&#8358;{{ number_format($product->discount_price, 2) }}</p>
 					
 					<p class="product_price">
 						&#8358;{{ number_format($product->product_price,2) }}
 					</p>
+
+					@else
 					
+					<p class="product_price">
+						&#8358;{{ number_format($product->product_price,2) }}
+					</p>
+
+					@endif
+										
 					<p class="product_code">
 						Product code: {{ $product->product_code }}
 					</p>
