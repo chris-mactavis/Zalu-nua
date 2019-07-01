@@ -16,12 +16,12 @@ use App\Department;
 
 class AdminOrdersController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('admin.auth:admin');
     }
-    
+
     public function index()
     {
         $departments = Department::all();
@@ -30,10 +30,10 @@ class AdminOrdersController extends Controller
             ->select('orders.*', 'users.name')
             ->orderBy('orders.created_at', 'desc')
             ->paginate(20);
-        
+
         return view('admin.orders.index')->with('orders', $orders)->with('departments', $departments);
     }
-    
+
     public function view($id)
     {
         $order = DB::table('orders')
@@ -44,29 +44,29 @@ class AdminOrdersController extends Controller
             ->get();
 
         return view('admin.orders.detail')
-        ->with('order', $order);
+            ->with('order', $order);
     }
 
-    
+
     public function edit($id)
     {
         $order = Order::find($id);
         return view('admin.orders.edit')->with('order', $order);
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'order_status' => 'required',
         ]);
 
-        $order = Order::find($id);  
+        $order = Order::find($id);
         $order->order_status = $request->order_status;
         $order->save();
 
         Session::flash('success', 'You have successfully updated the order');
-        return redirect()->route('admin.orders');  
+        return redirect()->route('admin.orders');
     }
 
 
@@ -82,26 +82,20 @@ class AdminOrdersController extends Controller
             ->where('departments.department_id', '=', $department_id)
             ->paginate(20);
         return view('admin.orders.department')
-        ->with('department_orders', $department_orders)
-        ->with('departments', $departments)
-        ->with('curr_dept', $curr_dept);
+            ->with('department_orders', $department_orders)
+            ->with('departments', $departments)
+            ->with('curr_dept', $curr_dept);
     }
 
 
     public function create()
-    {
-        
-    }
+    { }
 
-    
+
     public function store(Request $request)
-    {
-        
-    }
+    { }
 
-    
+
     public function destroy($id)
-    {
-        
-    }
+    { }
 }

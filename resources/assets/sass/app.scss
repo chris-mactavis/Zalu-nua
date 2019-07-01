@@ -152,21 +152,37 @@ hr {
     text-align: center;
 }
 
-.footer_itm{
+.footer_itm {
     a {
-        padding-left: 0!important;
-        &.contact {color: blue;}
+        padding-left: 0 !important;
+
+        &.contact {
+            color: blue;
+        }
     }
 }
 
 @media screen and (max-width: 600px) {
-    
+
     .ubislider {
-        width: auto!important;
-        height: auto!important;
+        width: auto !important;
+        height: auto !important;
+
         &-inner {
-            top: 0!important;
-            height: auto!important;
+            top: 0 !important;
+            height: auto !important;
         }
+    }
+}
+
+p.discount {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+
+    &+.price,
+    &+.product_price {
+        font-size: 14px;
+        color: #8d8d92;
+        text-decoration: line-through;
     }
 }

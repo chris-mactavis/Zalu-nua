@@ -49,6 +49,8 @@ use Illuminate\Support\Facades\URL;
 					<p class="short_desc">
 						{!! ($product->description) !!}
 					</p>
+
+					<p class="price discount">&#8358;{{ number_format($product->discount_price, 2) }}</p>
 					
 					<p class="product_price">
 						&#8358;{{ number_format($product->product_price,2) }}
@@ -69,7 +71,6 @@ use Illuminate\Support\Facades\URL;
 								@if($variant['variant_option'] != null)
 									<label for="">{{$variant['variant_name']}}:</label>
 									@if(count($variant['variant_option']) == 1)
-									
 										@php $checked = 'checked'; @endphp
 									@endif
 									@foreach ($variant['variant_option'] as $item)

@@ -140,7 +140,7 @@ use Illuminate\Support\Facades\URL;
                 $products = DB::table('order_details')
                 ->join('products', 'order_details.product_id', '=', 'products.id')
                 ->where('order_details.order_id', '=', $order_id)
-                ->select('order_details.*', 'products.product_image', 'products.product_name', 'products.product_price')
+                ->select('order_details.*', 'products.product_image', 'products.product_name', 'products.product_price', 'products.discount_price', 'products.sale')
                 ->get();
                 
                 ?>
@@ -158,7 +158,7 @@ use Illuminate\Support\Facades\URL;
                     <div class="col-md-8">
                       <div class="ordered_itm_txt">
                         <h4><a href="">{{ $product->product_name }}</a></h4>
-                        <p>Price: &#8358;{{ number_format($product->product_price, 2) }}</p>
+                        <p>Price: &#8358;{{ number_format($product->sale == 'yes' ? $product->discount_price : $product->product_price, 2) }}</p>
                         <p>Quantity: {{ $product->quantity }}</p>
                         <p><b>Variants: </b> 
                           @if($product->variants)
