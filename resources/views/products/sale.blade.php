@@ -63,7 +63,8 @@ use Illuminate\Support\Facades\URL;
 							</div>
 							<div class="prdt_itm_txt">
 								<p class="name">{{ $product->product_name }}</p>
-								<p class="price">N{{ number_format($product->product_price, 2) }}</p>
+								<p class="price discount">&#8358;{{ number_format($product->discount_price, 2) }}</p>
+								<p class="price">&#8358;{{ number_format($product->product_price, 2) }}</p>
 							</div>
 						</div>
 					</div>

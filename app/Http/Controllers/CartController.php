@@ -26,11 +26,16 @@ class CartController extends Controller
         }
 
         $product = Product::find(request()->product_id);
+        $price = $product->product_price;
+        if ($product->sale == 'yes') {
+            $price = $product->discount_price;
+        }
+
         $cartItem = Cart::add([
             'id' => $product->id,
             'name' => $product->product_name,
             'qty' => request()->product_qty,
-            'price' => $product->product_price,
+            'price' => $price,
             'variants' => request()->product_variant
         ]);
 
