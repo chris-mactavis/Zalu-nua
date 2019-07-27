@@ -29,7 +29,7 @@ class AdminProductsController extends Controller
 
     public function index()
     {
-        $products = Product::orderBy('created_at', 'desc')->paginate(25);
+        $products = Product::latest()->paginate(25);
         return view('admin.products.index')->with('products', $products);
     }
 
@@ -101,8 +101,8 @@ class AdminProductsController extends Controller
         $product = Product::find($id);
         $categories = Category::all();
         $departments = Department::all();
-        
-        if($product->variants) {
+
+        if ($product->variants) {
             $variants = collect(unserialize($product->variants));
             $var = $variants->groupBy('variant_name');
         } else {

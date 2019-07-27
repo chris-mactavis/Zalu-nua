@@ -19,60 +19,55 @@ use App\ProductVariant;
 
 class ProductsController extends Controller
 {
-    
+
     public function index()
     {
         $departments = Department::all();
-        $products = Product::all();
+        $products = Product::latest()->get();
         return view('products.index')->with('departments', $departments)->with('products', $products);
     }
 
 
-    public function returnStore($products, $department, $categories) {
+    public function returnStore($products, $department, $categories)
+    {
         return view('products.department')
             ->with('products', $products)
             ->with('department', $department)
             ->with('categories', $categories);
     }
 
-   
+
     public function stores($department_url)
     {
-        
+
         $department = Department::where('department_url', $department_url)->first();
-        if(!empty($department)) {
-            $department_id = $department->department_id; 
+        if (!empty($department)) {
+            $department_id = $department->department_id;
             $categories = Category::where('department_id', $department_id)->get();
-            
-            if(isset($_GET['sort'])) {
-                if($_GET['sort'] == 'newest') {
+
+            if (isset($_GET['sort'])) {
+                if ($_GET['sort'] == 'newest') {
                     $products = Product::where('department_id', $department_id)->orderBy('created_at', 'desc')->paginate(15);
                     return $this->returnStore($products, $department, $categories);
-                }
-                else if($_GET['sort'] == 'high-to-low') {
+                } else if ($_GET['sort'] == 'high-to-low') {
                     $products = Product::where('department_id', $department_id)->orderBy('product_price', 'desc')->paginate(15);
                     return $this->returnStore($products, $department, $categories);
-                }
-                else if($_GET['sort'] == 'low-to-high') {
+                } else if ($_GET['sort'] == 'low-to-high') {
                     $products = Product::where('department_id', $department_id)->orderBy('product_price', 'asc')->paginate(15);
                     return $this->returnStore($products, $department, $categories);
                 }
-                
-            }
-            else {
-                $products = Product::where('department_id', $department_id)->paginate(15);
+            } else {
+                $products = Product::where('department_id', $department_id)->latest()->paginate(15);
                 return $this->returnStore($products, $department, $categories);
-            } 
-        }
-        else {
+            }
+        } else {
             return view('errors.404');
         }
-           
-                                
     }
 
 
-    public function returnCategory($products, $category, $categories, $department) {
+    public function returnCategory($products, $category, $categories, $department)
+    {
         return view('products.category')
             ->with('products', $products)
             ->with('category', $category)
@@ -83,7 +78,7 @@ class ProductsController extends Controller
 
     public function category($department_url, $category_url, $category_id)
     {
-        $department = Department::where('department_url',$department_url)->first();
+        $department = Department::where('department_url', $department_url)->first();
         $department_id = $department->department_id;
 
         $categories = Category::where('department_id', $department_id)->get();
@@ -91,54 +86,47 @@ class ProductsController extends Controller
         $category = Category::where('category_id', $category_id)->first();
         //$category_id = $category->id;
 
-        if(isset($_GET['sort'])) {
-            if($_GET['sort'] == 'newest') {
+        if (isset($_GET['sort'])) {
+            if ($_GET['sort'] == 'newest') {
                 $products = Product::where('category_id', $category_id)->orderBy('created_at', 'desc')->paginate(15);
                 return $this->returnCategory($products, $category, $categories, $department);
-            }
-            else if($_GET['sort'] == 'high-to-low') {
+            } else if ($_GET['sort'] == 'high-to-low') {
                 $products = Product::where('category_id', $category_id)->orderBy('product_price', 'desc')->paginate(15);
                 return $this->returnCategory($products, $category, $categories, $department);
-            }
-            else if($_GET['sort'] == 'low-to-high') {
+            } else if ($_GET['sort'] == 'low-to-high') {
                 $products = Product::where('category_id', $category_id)->orderBy('product_price', 'asc')->paginate(15);
                 return $this->returnCategory($products, $category, $categories, $department);
             }
-            
-        }
-        else {
+        } else {
             $products = Product::where('category_id', $category_id)->paginate(15);
             return $this->returnCategory($products, $category, $categories, $department);
-        }   
-
+        }
     }
 
-    
+
     public function view($slug)
     {
         $product = Product::where('slug', $slug)->first();
-        if(!empty($product)) {
+        if (!empty($product)) {
             $product_variants = unserialize($product->variants);
             $product_cat = $product->category_id;
             $related_product_coll = Product::where('category_id', $product_cat)->get();
-            if(count($related_product_coll) > 4) {
+            if (count($related_product_coll) > 4) {
                 $related_products = $related_product_coll->random(4);
-            }
-            else {
+            } else {
                 $related_products = $related_product_coll;
             }
 
             return view('products.view')
-            ->with('product', $product)
-            ->with('product_variants', $product_variants)
-            ->with('related_products', $related_products);
-        }
-        else {
+                ->with('product', $product)
+                ->with('product_variants', $product_variants)
+                ->with('related_products', $related_products);
+        } else {
             return view('errors.404');
         }
     }
 
-    
+
 
     public function sale()
     {
@@ -146,30 +134,28 @@ class ProductsController extends Controller
         $products = Product::where('sale', 'yes')->get();
 
         return view('products.sale')
-        ->with('departments', $departments)
-        ->with('products', $products);
+            ->with('departments', $departments)
+            ->with('products', $products);
     }
 
 
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $search_text = $request->search_text;
         $departments = Department::all();
 
         //start search query
         $products = DB::table('products')
-        ->join('departments', 'products.department_id', '=', 'departments.department_id')
-        ->join('categories', 'products.category_id', '=', 'categories.category_id')
-        ->where('products.product_name', 'like', '%' . $search_text . '%')
-        ->orWhere('departments.department_name', 'like', '%' . $search_text . '%')
-        ->orWhere('categories.category_name', 'like', '%' . $search_text . '%')
-        ->get();
+            ->join('departments', 'products.department_id', '=', 'departments.department_id')
+            ->join('categories', 'products.category_id', '=', 'categories.category_id')
+            ->where('products.product_name', 'like', '%' . $search_text . '%')
+            ->orWhere('departments.department_name', 'like', '%' . $search_text . '%')
+            ->orWhere('categories.category_name', 'like', '%' . $search_text . '%')
+            ->get();
 
         return view('products.search')
-        ->with('departments', $departments)
-        ->with('products', $products)
-        ->with('search_text', $search_text);
-
+            ->with('departments', $departments)
+            ->with('products', $products)
+            ->with('search_text', $search_text);
     }
-
-    
 }
