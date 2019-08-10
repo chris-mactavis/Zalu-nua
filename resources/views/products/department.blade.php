@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\URL;
 								@foreach($categories as $cat)
 								<li>
 									<a href="{{ route('products.category', 
-									['department_url'=>$department->department_url, 'category_url'=>$cat->category_url, 'category_id' => $cat->category_id]) }}">
+									['department_url'=>$department->department_url, 'category_url'=>$cat->category_url, 'category_id' => $cat->category_id]) }}{{isset($_GET['sale']) ? '?sale' : ''}}">
 										{{ $cat->category_name }}
 									</a>
 								</li>

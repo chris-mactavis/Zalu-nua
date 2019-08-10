@@ -1,4 +1,5 @@
 <?php
+
 use App\Mail\PurchaseSuccessful;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -7,7 +8,7 @@ if (env('APP_ENV') === 'production') {
 	URL::forceScheme('https');
 }
 
-Route::get('/test-mail', function() {
+Route::get('/test-mail', function () {
 	Mail::to('dj3plles@gmail.com')->send(new PurchaseSuccessful(App\Order::latest()->first()));
 });
 
@@ -191,7 +192,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 		'uses' => 'CheckOutController@pay',
 		'as' => 'checkout.pay'
 	]);
-	
+
 	Route::post('/checkout/rave', [
 		'uses' => 'CheckOutController@ravepay',
 		'as' => 'ravepay'

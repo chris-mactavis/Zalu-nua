@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\URL;
 						<ul>
 							@foreach($departments as $department)
 							<li>
-								<a href="{{ route('products.department', ['department_url'=>$department->department_url]) }}">
+								<a href="{{ route('products.department', ['department_url'=>$department->department_url]) }}?sale">
 									{{ $department->department_name }}
 								</a>
 							</li>

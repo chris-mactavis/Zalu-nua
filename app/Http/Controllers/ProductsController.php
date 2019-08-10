@@ -39,7 +39,6 @@ class ProductsController extends Controller
 
     public function stores($department_url)
     {
-
         $department = Department::where('department_url', $department_url)->first();
         if (!empty($department)) {
             $department_id = $department->department_id;
@@ -56,6 +55,9 @@ class ProductsController extends Controller
                     $products = Product::where('department_id', $department_id)->orderBy('product_price', 'asc')->paginate(15);
                     return $this->returnStore($products, $department, $categories);
                 }
+            } else if (isset($_GET['sale'])) {
+                $products = Product::where('department_id', $department_id)->whereSale('yes')->latest()->paginate(15);
+                return $this->returnStore($products, $department, $categories);
             } else {
                 $products = Product::where('department_id', $department_id)->latest()->paginate(15);
                 return $this->returnStore($products, $department, $categories);
@@ -84,7 +86,6 @@ class ProductsController extends Controller
         $categories = Category::where('department_id', $department_id)->get();
 
         $category = Category::where('category_id', $category_id)->first();
-        //$category_id = $category->id;
 
         if (isset($_GET['sort'])) {
             if ($_GET['sort'] == 'newest') {
@@ -97,8 +98,11 @@ class ProductsController extends Controller
                 $products = Product::where('category_id', $category_id)->orderBy('product_price', 'asc')->paginate(15);
                 return $this->returnCategory($products, $category, $categories, $department);
             }
+        } else if (isset($_GET['sale'])) {
+            $products = Product::where('category_id', $category_id)->whereSale('yes')->latest()->paginate(15);
+            return $this->returnCategory($products, $category, $categories, $department);
         } else {
-            $products = Product::where('category_id', $category_id)->paginate(15);
+            $products = Product::where('category_id', $category_id)->latest()->paginate(15);
             return $this->returnCategory($products, $category, $categories, $department);
         }
     }
