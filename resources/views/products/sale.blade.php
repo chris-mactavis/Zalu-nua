@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\URL;
 	<section id="page_content">
 		<div class="row">
 			
-			<div class="col-md-3 col-sm-4 col-xs-12">
+			{{-- <div class="col-md-3 col-sm-4 col-xs-12">
 				<div class="sidebar">
 					<div class="product_cat_title">
 						<ul>
@@ -46,15 +46,15 @@ use Illuminate\Support\Facades\URL;
 					</div>
 
 				</div>
-			</div><!-- Sidebar -->
+			</div><!-- Sidebar --> --}}
 
 
-			<div class="col-md-9 col-sm-8 col-xs-12">
+			<div class="col-md-12 col-sm-12 col-xs-12">
 				
 				<div class="content_area row">
 					@foreach($products as $product)
 					
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="prdt_itm">
 							<div class="prdt_itm_img">
 								<a href="{{ route('products.view', ['slug'=>$product->slug]) }}">
